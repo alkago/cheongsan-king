@@ -1,0 +1,542 @@
+:root {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  color: #e5edf8;
+  background: #06080d;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --bg: #080b12;
+  --panel: rgba(15, 23, 42, 0.92);
+  --panel2: rgba(30, 41, 59, 0.72);
+  --border: rgba(148, 163, 184, 0.18);
+  --text: #e5edf8;
+  --muted: #94a3b8;
+  --green: #22c55e;
+  --red: #ef4444;
+  --yellow: #facc15;
+  --blue: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.appShell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(244, 63, 94, 0.10), transparent 28%),
+    linear-gradient(180deg, #05070c, #0b1020);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+}
+
+.phoneFrame {
+  width: min(100vw, 470px);
+  min-height: 100vh;
+  background: rgba(8, 11, 18, 0.96);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.appHeader {
+  height: 68px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: rgba(8, 11, 18, 0.82);
+  backdrop-filter: blur(18px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.appHeader div {
+  display: grid;
+  gap: 2px;
+}
+
+.appHeader span {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.appHeader strong {
+  color: var(--text);
+  font-size: 15px;
+  letter-spacing: -0.02em;
+}
+
+.headerBest {
+  text-align: right;
+}
+
+.screen {
+  flex: 1;
+  padding: 22px 18px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.heroScreen {
+  justify-content: center;
+  min-height: calc(100vh - 68px);
+}
+
+.heroBadge {
+  align-self: flex-start;
+  padding: 7px 10px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  background: rgba(56, 189, 248, 0.08);
+  color: #7dd3fc;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -0.08em;
+  line-height: 0.95;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 18px;
+  margin-top: -8px;
+}
+
+.heroCard,
+.resultCard,
+.equityPanel,
+.adBox {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.62));
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+}
+
+.heroCard span,
+.resultCard span,
+.equityPanel span {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.heroCard strong,
+.resultCard strong,
+.equityPanel strong {
+  display: block;
+  font-size: 30px;
+  letter-spacing: -0.05em;
+  margin-top: 6px;
+}
+
+.heroCard p {
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.finePrint {
+  color: rgba(148, 163, 184, 0.72);
+  text-align: center;
+  font-size: 12px;
+}
+
+.screenTitle {
+  display: grid;
+  gap: 6px;
+}
+
+.screenTitle span {
+  color: var(--blue);
+  font-size: 12px;
+  letter-spacing: 0.10em;
+  font-weight: 800;
+}
+
+.screenTitle h2 {
+  font-size: 26px;
+  letter-spacing: -0.06em;
+}
+
+.choiceList {
+  display: grid;
+  gap: 12px;
+}
+
+.choiceCard {
+  width: 100%;
+  min-height: 82px;
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: rgba(15, 23, 42, 0.72);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.choiceCard:active,
+.primaryButton:active,
+.ghostButton:active {
+  transform: scale(0.985);
+}
+
+.choiceCard strong {
+  display: block;
+  font-size: 17px;
+  letter-spacing: -0.03em;
+}
+
+.choiceCard p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+  margin-top: 5px;
+}
+
+.choiceCard span {
+  flex: 0 0 auto;
+  padding: 7px 9px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.10);
+  color: #cbd5e1;
+  font-size: 11px;
+}
+
+.choiceCard:hover {
+  border-color: rgba(56, 189, 248, 0.34);
+  background: rgba(30, 41, 59, 0.82);
+}
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.choiceCard.tall {
+  min-height: 170px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.choiceCard.tall strong {
+  font-size: 34px;
+  letter-spacing: -0.08em;
+}
+
+.choiceCard.green {
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.18), rgba(15, 23, 42, 0.80));
+}
+
+.choiceCard.red {
+  background: linear-gradient(180deg, rgba(239, 68, 68, 0.18), rgba(15, 23, 42, 0.80));
+}
+
+.choiceCard.leverage strong {
+  font-size: 28px;
+}
+
+.primaryButton,
+.ghostButton {
+  width: 100%;
+  min-height: 56px;
+  border-radius: 18px;
+  font-weight: 800;
+  border: 0;
+  cursor: pointer;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #facc15, #fb923c);
+  color: #111827;
+  box-shadow: 0 16px 32px rgba(250, 204, 21, 0.16);
+}
+
+.greenButton {
+  background: linear-gradient(135deg, #22c55e, #86efac);
+  color: #052e16;
+}
+
+.redButton {
+  background: linear-gradient(135deg, #fb7185, #ef4444);
+  color: #fff1f2;
+}
+
+.ghostButton {
+  color: #cbd5e1;
+  background: rgba(148, 163, 184, 0.09);
+  border: 1px solid var(--border);
+}
+
+.playScreen {
+  gap: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.tradeTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+}
+
+.tradeTop div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.tradeTop span {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.tradeTop strong {
+  font-size: 20px;
+  letter-spacing: -0.04em;
+}
+
+.candleTimer {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(56, 189, 248, 0.10);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  color: #7dd3fc;
+  font-weight: 900;
+}
+
+.chartBox {
+  width: 100%;
+  height: 276px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #0c111d;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.metric {
+  min-height: 68px;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.70);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.metric span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.metric strong {
+  font-size: 17px;
+  letter-spacing: -0.03em;
+}
+
+.dangerMetric strong {
+  color: #fda4af;
+}
+
+.equityPanel {
+  padding: 16px;
+}
+
+.equityPanel strong {
+  font-size: 32px;
+}
+
+.equityPanel em {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 900;
+  margin-top: 8px;
+}
+
+.equityPanel p {
+  color: var(--muted);
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.profitText {
+  color: #4ade80;
+}
+
+.lossText,
+.dangerText {
+  color: #fb7185 !important;
+}
+
+.resultScreen {
+  justify-content: center;
+  text-align: center;
+}
+
+.resultIcon {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.resultIcon.profit {
+  background: rgba(34, 197, 94, 0.16);
+  color: #86efac;
+  border: 1px solid rgba(34, 197, 94, 0.24);
+}
+
+.resultIcon.loss {
+  background: rgba(239, 68, 68, 0.14);
+  color: #fda4af;
+  border: 1px solid rgba(239, 68, 68, 0.24);
+}
+
+.resultIcon.liquidation {
+  background: rgba(244, 63, 94, 0.18);
+  color: #ffe4e6;
+  border: 1px solid rgba(244, 63, 94, 0.32);
+}
+
+.resultScreen h2 {
+  font-size: 28px;
+  line-height: 1.12;
+  letter-spacing: -0.07em;
+}
+
+.bigPnl {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+}
+
+.reasonText {
+  font-size: 25px;
+  line-height: 1.3;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+  padding: 0 8px;
+}
+
+.dangerCard {
+  border-color: rgba(244, 63, 94, 0.28);
+}
+
+.copyMessage {
+  color: #7dd3fc;
+  font-size: 13px;
+}
+
+.adScreen {
+  justify-content: center;
+}
+
+.adBox {
+  text-align: center;
+  padding: 34px 20px;
+}
+
+.adBox span {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+.adBox h2 {
+  margin-top: 14px;
+  font-size: 26px;
+  letter-spacing: -0.06em;
+}
+
+.adBox strong {
+  display: block;
+  margin-top: 18px;
+  font-size: 72px;
+  line-height: 1;
+  color: var(--yellow);
+}
+
+.adBox p {
+  color: var(--muted);
+  margin-top: 18px;
+}
+
+@media (max-height: 760px) {
+  .screen {
+    gap: 12px;
+    padding-top: 16px;
+    padding-bottom: 18px;
+  }
+
+  .chartBox {
+    height: 238px;
+  }
+
+  .heroScreen {
+    justify-content: flex-start;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  .equityPanel strong {
+    font-size: 28px;
+  }
+}
